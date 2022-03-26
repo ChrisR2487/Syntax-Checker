@@ -1,0 +1,16 @@
+Success: no syntax error is found.
+
+Following is the indentation-updated source code:
+
+func main::(a::int)->int
+begin
+    var x::int;
+    var y::int;
+    x <- x + 1;
+    if 1 then
+        x <- x + 2;
+    else
+        x <- x + 2;
+    end
+end
+

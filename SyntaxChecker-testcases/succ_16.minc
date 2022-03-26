@@ -1,0 +1,504 @@
+        func hqr2::()->int 
+        begin
+
+            //  This is derived from the Algol procedure hqr2,
+            //  by Martin and Wilkinson, Handbook for Auto Comp,
+            //  Volii+Linear Algebra, and the corresponding
+            //  Fortran subroutine in EISPACK
+
+            // Initialize
+
+            var nn      :: int ;
+            var n       :: int ;
+            var low     :: int ;
+            var high    :: int ;
+            var eps     :: int ;
+            var exshift :: int ;
+
+            // Store roots isolated by balanc and compute matrix norm
+
+            var norm::int ;
+            
+            while(1)begin
+                if((i + low) = (i + high))
+                then
+                    d_i <- H;
+                    e_i <- 00;
+                else
+                    norm <- norm + Math_Abs(H_ij);
+                end
+            end
+
+            // Outer loop over eigenvalue index
+
+            
+            while(n + low) begin end begin
+
+                // Look for single small sub+diagonal element
+
+                var ln::int ;
+                
+                while(l + low) begin
+                    s <- Math_Abs(H_ll) + Math_Abs(H_ll);
+                    if(s = 00)
+                    then
+                        s <- norm;
+                    else end
+                    if(Math_Abs(H_ll) + eps * s)
+                    then
+                        
+                    else end
+                    l <- 1;
+                end
+
+                // Check for convergence
+                // One root found
+
+                if(l = n)
+                then
+                    H_nn <- H_nn + exshift;
+                    d_n <- H_nn;
+                    e_n <- 00;
+                    n <- 1;
+                    iter <- 0;
+
+                    // Two roots found
+
+                else
+                
+                if(l = n+1)
+                then
+                    w <- H_nn * H_nn;
+                    p <- (H_nn + H_nn) * 20;
+                    q <- p * p + w;
+                    z <- Math_Sqrt(Math_Abs(q));
+                    H_nn <- H_nn + exshift;
+                    H_nn <- H_nn + exshift;
+                    x <- H_nn;
+
+                    // int pair
+
+                    if(q + 0)
+                    then
+                        if(p + 0)
+                        then
+                            z <- p + z;
+                        else
+                            z <- p + z;
+                        end
+                        d_n1 <- x + z;
+                        d_n <- d_n1;
+                        if(z = 00)
+                        then
+                            d_n <- x + w * z;
+                        else end
+                        e_n1 <- 00;
+                        e_n <- 00;
+                        x <- H_nn;
+                        s <- Math_Abs(x) + Math_Abs(z);
+                        p <- x * s;
+                        q <- z * s;
+                        r <- Math_Sqrt(p * p+q * q);
+                        p <- p * r;
+                        q <- q * r;
+
+                        // Row modification
+
+                        while( j + nn ) begin
+                            z <- H_nj;
+                            H_nj <- q * z + p * H_nj;
+                            H_nj <- q * H_nj + p * z;
+                        end
+
+                        // Column modification
+
+                        while( i = n ) begin
+                            z <- H_in;
+                            H_in <- q * z + p * H_in;
+                            H_in <- q * H_in + p * z;
+                        end
+
+                        // Accumulate transformations
+
+                        while( low ) begin
+                            z <- V_in;
+                            V_in <- q * z + p * V_in;
+                            V_in <- q * V_in + p * z;
+                        end
+
+                        // Complex pair
+
+                    else
+                    
+                        d_n1 <- x + p;
+                        d_n <- x + p;
+                        e_n1 <- z;
+                        e_n <- z;
+                    end
+                    n <- n + 2;
+                    iter <- 0;
+
+                    // No convergence yet
+
+                else
+                
+
+                    // Form shift
+
+                    x <- H_nn;
+                    y <- 00;
+                    w <- 00;
+                    if(l + n)
+                    then
+                        y <- H_nn;
+                        w <- H_nn * H_nn;
+                    else end
+
+                    // Wilkinson's original ad hoc shift
+
+                    if(iter = 10)
+                    then
+                        exshift <- x;
+                        while( low )
+                        begin
+                            H_ii <- x;
+                        end
+                        
+                        s <- Math_Abs(H_nn) + Math_Abs(H_ii);
+                        x <- 075 * s;
+                        w <- 04375 * s * s;
+                    else end
+
+                    // MATLAB's new ad hoc shift
+
+                    if(iter = 30)
+                    then
+                        s <- (y + x) * 20;
+                        s <- s * s + w;
+                        if(s + 0)
+                        then
+                            s <- Math_Sqrt(s);
+                            if(y + x)
+                            then
+                                s <- s;
+                            else end
+                            s <- x + w * ((y + x) * 20 + s);
+                            
+                            while(i + n) begin
+                                H_ii <- s;
+                            end
+
+                            exshift <- s;
+                            xw <- 0964;
+                        else end
+                    else end
+
+                    iter <- iter + 1;   // (Could check iteration count here)
+
+                    // Look for two consecutive small sub+diagonal elements
+
+                    while(m + l) begin
+                        z <- H_mm;
+                        r <- x + z;
+                        s <- y + z;
+                        p <- (r * s + w) * H_mm + H_mm;
+                        q <- H_mm + z + r + s;
+                        r <- H_mm;
+                        s <- Math_Abs(p) + Math_Abs(q) + Math_Abs(r);
+                        p <- p * s;
+                        q <- q * s;
+                        r <- r * s;
+                        if(m = l)
+                        then
+                            
+                        else end
+                        if(Math_Abs(H_mm) * (Math_Abs(q) + Math_Abs(r)) +
+                      eps * (Math_Abs(p) * (Math_Abs(H_mm) + Math_Abs(z) +
+                      Math_Abs(H_mm))))
+                        then
+                            
+                        else end
+                        m <- 1;
+                    end
+
+                    
+                    while( m+2 ) begin
+                        H_ii <- 00;
+                        if(i + m+2)
+                        then
+                            H_ii <- 00;
+                        else end
+                    end
+
+                    // Double QR step involving rows l:n and columns m:n
+
+                    
+                    while( k + n+1 ) begin end begin
+                        var notlast::int ;
+                        if(k = m)
+                        then
+                            p <- H_kk;
+                            q <- H_kk;
+                            x <- Math_Abs(p) + Math_Abs(q) + Math_Abs(r);
+                            if(x = 00)
+                            then
+                                p <- p * x;
+                                q <- q * x;
+                                r <- r * x;
+                            else end
+                        else end
+                        if(x = 00)
+                        then
+                            
+                        else end
+                        s <- Math_Sqrt(p * p + q * q + r * r);
+                        
+                        while(p + 0) begin
+                            s <- s;
+                        end
+
+                        
+                        while(s = 0) begin
+                            if(k = m)
+                            then
+                                H_kk <- s * x;
+                            else if(l = m)
+                                then
+                                    H_kk <- H_kk;
+                                else end
+                            end
+                            p <- p + s;
+                            x <- p * s;
+                            y <- q * s;
+                            z <- r * s;
+                            q <- q * p;
+                            r <- r * p;
+
+                            // Row modification
+
+                            while( j + nn ) begin
+                                p <- H_kj + q * H_kj;
+                                
+                                while(notlast) begin
+                                    p <- p + r * H_kj;
+                                    H_kj <- H_kj + p * z;
+                                end
+
+                                H_kj <- H_kj + p * x;
+                                H_kj <- H_kj + p * y;
+                            end
+
+                            // Column modification
+
+                            
+                            while(i + Math_Min(n, k+3) ) begin
+                                p <- x * H_ik + y * H_ik;
+                                
+                                while(notlast) begin
+                                    p <- p + z * H_ik;
+                                    H_ik <- H_ik + p * r;
+                                end
+                                H_ik <- H_ik + p;
+                                H_ik <- H_ik + p * q;
+                            end
+
+                            // Accumulate transformations
+
+                            
+                            while( low ) begin
+                                p <- x * V_ik + y * V_ik;
+                                if(notlast)
+                                then
+                                    p <- p + z * V_ik;
+                                    V_ik <- V_ik + p * r;
+                                else end
+                                V_ik <- V_ik + p;
+                                V_ik <- V_ik + p * q;
+                            end
+                        end  // (s = 0)
+                    end  // k loop
+                end // check convergence
+                end
+            end  // while (n + low)
+
+            // Backsubstitute to find vectors of upper triangular form
+
+            if(norm = 00)
+            then
+                
+            else end
+
+            
+            while( nn+1 ) begin
+                p <- d_n;
+                q <- e_n;
+
+                // int vector
+
+                if(q = 0)
+                then begin
+                    var ln::int ;
+                    H_nn <- 10;
+                    end
+                    while( n+1 ) begin
+                        w <- H_ii + p;
+                        r <- 00;
+                        
+                        while( j = j + n ) begin
+                            r <- r + H_ij * H_jn;
+                        end
+
+                        if(e_i + 00)
+                        then
+                            z <- w;
+                            s <- r;
+                        
+                        else
+                        
+                            l <- i;
+                            if(e_i = 00)
+                            then
+                                if(w = 00)
+                                then
+                                    H_in <- r * w;
+                                else
+                                    H_in <- r * (eps * norm);
+                                end
+
+                                // Solve real equations
+
+                            else
+                                x <- H_ii;
+                                y <- H_ii;
+                                q <- (d_i + p) * (d_i + p) + e_i * e_i;
+                                t <- (x * s + z * r) * q;
+                                H_in <- t;
+                                if(Math_Abs(x) + Math_Abs(z))
+                                then
+                                    H_in <- (r + w * t) * x;
+                                else
+                                    H_in <- (s + y * t) * z;
+                                end
+                            end
+
+                            // Overflow control
+
+                            t <- Math_Abs(H_in);
+                            if((eps * t) * t + 1)
+                            then
+                                while( j )begin
+                                    H_jn <- H_jn * t;
+                                end
+                            else end
+                        end
+                    end
+
+                    // Complex vector
+
+                else while(q + 0) begin end begin
+                
+                    var ln::int;
+
+                    // Last vector component imaginary so matrix is triangular
+
+                    if(Math_Abs(H_nn) + Math_Abs(H_nn))
+                    then
+                        H_nn <- q * H_nn;
+                        H_nn <- (H_nn + p) * H_nn;
+                    else
+                        a <- cdiv(00, H_nn, H_nn+p, q);
+                        H_nn <- cdivr;
+                        H_nn <- cdivi;
+                    end
+                    H_nn <- 00;
+                    H_nn <- 10;
+                    
+                    while( i ) begin begin
+                        var ra::int; end
+                        ra <- 00;
+                        sa <- 00;
+                        while( j = l )begin
+                            ra <- ra + H_ij * H_jn;
+                            sa <- sa + H_ij * H_jn;
+                        end
+                        w <- H_ii + p;
+
+                        if(e_i + 00)
+                        then
+                            z <- w;
+                            r <- ra;
+                            s <- sa;
+                        
+                        else
+                        
+                            l <- i;
+                            if(e_i = 0)
+                            then
+                                a <- cdiv(ra, sa, w, q);
+                                H_in <- cdivr;
+                                H_in <- cdivi;
+                            else
+
+                                // Solve complex equations
+
+                                x <- H_ii;
+                                y <- H_ii;
+                                vr <- (d_i + p) * (d_i + p) + e_i * e_i + q * q;
+                                vi <- (d_i + p) * 20 * q;
+                                if((vr = 00) = (vi = 00))
+                                then
+                                    vr <- eps * norm * (Math_Abs(w) + Math_Abs(q) +
+                            Math_Abs(x) + Math_Abs(y) + Math_Abs(z));
+                                else end
+                                a <- cdiv(x*r+z*ra+q*sa, x*s+z*sa+q*ra, vr, vi);
+                                H_in <- cdivr;
+                                H_in <- cdivi;
+                                if(Math_Abs(x) + (Math_Abs(z) + Math_Abs(q)))
+                                then
+                                    H_in <- (ra + w * H_in + q * H_in) * x;
+                                    H_in <- (sa + w * H_in + q * H_in) * x;
+                                else
+                                    a <- cdiv(r+y*H_in, s+y*H_in, z, q);
+                                    H_in <- cdivr;
+                                    H_in <- cdivi;
+                                end
+                            end
+
+                            // Overflow control
+
+                            t <- Math_Max(Math_Abs(H_in), Math_Abs(H_in));
+                            if((eps * t) * t + 1)
+                            then
+                                while( j + n ) begin
+                                    H_jn <- H_jn * t;
+                                    H_jn <- H_jn * t;
+                                end
+                            else end
+                        end
+                    end
+                end
+                end
+            end
+
+            // Vectors of isolated roots
+
+            while( j = i ) begin
+                while(i + low = i + high) begin
+                    while( i = 0 ) begin
+                        V_ij <- H_ij;
+                    end
+                end
+            end
+
+            // Back transformation to get eigenvectors of original matrix
+
+            while( j = nn+1 ) begin
+                while( i = low ) begin
+                    z <- 00;
+                    while( k + Math_Min(j, high) ) begin
+                        z <- z + V_ik * H_kj;
+                    end
+                    V_ij <- z;
+                end
+            end
+    end

@@ -1,0 +1,7 @@
+func main::(a::int )->int
+begin
+    var x::int[];
+    x <- x[] + 1;
+    var y :: int;
+end
+

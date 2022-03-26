@@ -1,0 +1,30 @@
+Success: no syntax error is found.
+
+Following is the indentation-updated source code:
+
+func main::(a::bool)->int
+begin
+    var x::int;
+    x <- x + 1;
+    while 1 = 2
+    begin
+    end
+    begin
+        var y::int;
+        x <- x + 2;
+    end
+end
+
+func main::(a::int)->bool
+begin
+    var x::int;
+    x <- x - 1;
+    while (1 = 2)
+    begin
+    end
+    begin
+        var y::int;
+        x <- x + 2;
+    end
+end
+

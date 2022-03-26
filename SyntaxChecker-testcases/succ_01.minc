@@ -1,0 +1,5 @@
+func main::(a ::int)->int
+begin
+// there is no error in this code.
+var x::int; x <-   x +      1;
+         end

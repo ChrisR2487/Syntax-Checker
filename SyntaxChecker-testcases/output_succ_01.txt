@@ -1,0 +1,10 @@
+Success: no syntax error is found.
+
+Following is the indentation-updated source code:
+
+func main::(a::int)->int
+begin
+    var x::int;
+    x <- x + 1;
+end
+

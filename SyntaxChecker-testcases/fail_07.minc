@@ -1,0 +1,10 @@
+func main::(a::int , b::int  a::int )->int
+begin
+    var x :: int ;
+    x <- x + 1;
+    do
+        var y :: int;
+        x <- x + 2;
+    while( 1 = 2 );
+end
+

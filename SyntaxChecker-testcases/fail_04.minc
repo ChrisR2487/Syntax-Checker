@@ -1,0 +1,12 @@
+func main::(a::int )->int
+begin
+    var x :: int ;
+    x <- x + 1;
+    if 1 then begin
+        var y, z :: int ;
+        x <- x + 2;
+    end else
+        x <- x + 2;
+    end
+end
+
